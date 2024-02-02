@@ -8,11 +8,16 @@ export default function Home() {
     async function getNotes() {
       const response = await fetch('/api/notes')
       const { notes } = await response.json()
-      console.log(notes.data)
       setNotes(notes.data)
+    }
+    async function getSecret() {
+      const response = await fetch('/api/secrets')
+      const { secret } = await response.json()
+      console.log(secret)
     }
 
     getNotes()
+    getSecret()
   }, [])
 
   return (
